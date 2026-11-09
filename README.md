@@ -1,12 +1,12 @@
 # 🚀 OmniPost Pro — Çok Kanallı Sosyal Medya & Dağıtım Stüdyosu
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://omnipost-theta.vercel.app/)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-0070F3?style=for-the-badge&logo=vercel&logoColor=white)](https://omnipost.vercel.app/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-23MAR47%2FOmniPost-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/23MAR47/OmniPost)
 [![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
 OmniPost Pro, modern içerik üreticileri, pazarlamacılar ve yazılım ekipleri için geliştirilmiş açık kaynaklı ve yüksek performanslı bir çok kanallı sosyal medya yönetim platformudur.
 
-🌐 **Canlı Uygulama:** [https://omnipost-theta.vercel.app/](https://omnipost-theta.vercel.app/)
+🌐 **Canlı Uygulama:** [https://omnipost.vercel.app/](https://omnipost.vercel.app/)
 
 ![OmniPost Banner](public/og-image.svg)
 
