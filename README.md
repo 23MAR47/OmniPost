@@ -14,41 +14,53 @@ OmniPost Pro, modern içerik üreticileri, pazarlamacılar ve yazılım ekipleri
 
 ## 📸 OmniPost Pro Arayüz & Ekran Görüntüleri Galerisi
 
-Aşağıdaki ekran görüntüleri doğrudan **[https://omnipostnew.vercel.app/](https://omnipostnew.vercel.app/)** üzerinde çalışan canlı OmniPost Pro modüllerine aittir:
+Aşağıdaki tüm ekran görüntüleri doğrudan **[https://omnipostnew.vercel.app/](https://omnipostnew.vercel.app/)** üzerinde çalışan güncel OmniPost Pro uygulamasına aittir:
 
-### 1. 🎨 İçerik Editörü ve Çok Kanallı Canlı Önizleme (Studio Editor)
-> Tek bir merkezden tüm sosyal ağlar için özel metin, görsel ve video uyarlaması.
-![Studio Editor](public/screenshots/01-studio-editor.png)
-
----
-
-### 2. ⚡ Çoklu Platform Eşzamanlı Dağıtım Motoru (Concurrent Dispatcher)
-> YouTube, X, Instagram, Facebook, TikTok, Pinterest ve Threads hesaplarına anlık paralel yayın.
-![Multi Platform Dispatch](public/screenshots/02-multi-platform-dispatch.png)
+### 1. 🌟 Giriş ve Tanıtım Sayfası (Landing Page Hero)
+> 12 sosyal medya platformuna tek tıkla eşzamanlı dağıtım sunan modern karşılama ekranı.
+![Landing Page Hero](public/screenshots/01-landing-hero.png)
 
 ---
 
-### 3. 📊 Gerçek Zamanlı Analitik ve Etkileşim Raporları
-> Gönderi performansı, erişim grafikleri ve tek tıkla Excel (.xlsx) ihracı.
-![Analytics History](public/screenshots/03-analytics-history.png)
+### 2. 📱 İnteraktif Canlı Önizleme ve Gönderi Simülatörü
+> Instagram, Facebook, X ve LinkedIn için canlı cihaz mockup'ları ve anlık içerik önizlemesi.
+![Interactive Mockup](public/screenshots/02-interactive-mockup.png)
 
 ---
 
-### 4. 🔐 AES-256 Şifreli Token Kasası (Zero-Leak Token Vault)
-> OAuth 2.0 PKCE oturumları, API anahtarı maskelemesi ve bağlantı sağlık monitörü.
-![Brand Accounts Vault](public/screenshots/04-brand-accounts-vault.png)
+### 3. 💰 ROI Tasarruf Hesaplayıcı ve Şeffaf Tarifeler
+> Haftalık zaman kazanımı ve maliyet tasarrufu hesaplayıcı modülü.
+![ROI and Pricing](public/screenshots/03-roi-pricing.png)
 
 ---
 
-### 5. 👥 Destek, Geri Bildirim ve Onay Motoru
-> Takım içi onay akışları ve kullanıcı destek biletleri.
-![Support and Approvals](public/screenshots/05-support-approvals.png)
+### 4. 📊 Ana Kontrol Paneli (Management Dashboard)
+> Hesap bağlantı durumları, hızlı paylaşım araçları ve genel sistem istatistikleri.
+![Kontrol Paneli](public/screenshots/04-kontrol-paneli.png)
 
 ---
 
-### 6. ✅ Başarılı Dağıtım ve Yayın Onay Ekranı
-> HTTP 201 Created durum kodları ve platform bazlı canlı gönderi linkleri.
-![Dispatch Success](public/screenshots/06-dispatch-success.png)
+### 5. 🎨 Çok Kanallı Gönderi Paneli (Publishing Studio)
+> Tek merkezden metin, görsel ve video uyarlamasıyla tüm ağlara eşzamanlı yayın stüdyosu.
+![Gonderi Paneli](public/screenshots/05-gonderi-paneli.png)
+
+---
+
+### 6. 🔐 12 Sosyal Ağ Hesap Yönetimi & Token Kasası
+> AES-256 şifreli OAuth 2.0 PKCE oturumları ve bağlantı sağlık monitörü.
+![Sosyal Hesaplar](public/screenshots/06-sosyal-hesaplar.png)
+
+---
+
+### 7. 📅 Akıllı Planlama & Zaman Takvimi
+> İleri tarihli paylaşımlar, sürükle-bırak takvim ve otomatik kuyruk yönetimi.
+![Planlama ve Takvim](public/screenshots/07-planlama-takvim.png)
+
+---
+
+### 8. ⚡ Otomasyonlar & RSS Dağıtım Merkezi
+> Otomatik RSS akışı dinleme ve akıllı içerik tetikleme otomasyonları.
+![Otomasyonlar](public/screenshots/08-otomasyonlar.png)
 
 ---
 

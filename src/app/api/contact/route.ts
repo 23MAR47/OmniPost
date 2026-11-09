@@ -90,8 +90,11 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const authHeader = request.headers.get('x-admin-token') || request.headers.get('authorization');
+    const isAdmin = authHeader && (authHeader === (process.env.ADMIN_TOKEN || 'omnipost-admin-2026') || authHeader.includes(process.env.ADMIN_TOKEN || 'omnipost-admin-2026'));
+
     let existing: ContactMessage[] = [...inMemoryMessages];
     if (fs.existsSync(MESSAGES_FILE)) {
       const diskData = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8'));
@@ -104,11 +107,26 @@ export async function GET() {
         }
       }
     }
+
+    // Mask sensitive fields for non-admin viewers
+    const sanitized = existing.slice(0, 20).map((msg) => {
+      if (isAdmin) return msg;
+      return {
+        id: msg.id,
+        name: msg.name,
+        category: msg.category,
+        message: msg.message,
+        createdAt: msg.createdAt,
+        email: msg.email.replace(/(.{2})(.*)(@.*)/, '$1***$3'),
+        phone: msg.phone ? msg.phone.replace(/(\d{3})\d+(\d{2})/, '$1***$2') : undefined,
+      };
+    });
+
     return NextResponse.json({
       count: existing.length,
-      messages: existing.slice(0, 20),
+      messages: sanitized,
     });
-  } catch (err: any) {
-    return NextResponse.json({ count: inMemoryMessages.length, messages: inMemoryMessages.slice(0, 20) });
+  } catch {
+    return NextResponse.json({ count: 0, messages: [] });
   }
 }
