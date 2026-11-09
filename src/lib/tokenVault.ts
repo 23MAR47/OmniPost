@@ -364,7 +364,9 @@ class TokenVaultManager {
   private memoryStore: Record<string, PlatformCredential>;
 
   constructor() {
-    this.filePath = path.join(process.cwd(), '.token-vault.json');
+    this.filePath = process.env.VERCEL
+      ? path.join('/tmp', '.token-vault.json')
+      : path.join(process.cwd(), '.token-vault.json');
     this.memoryStore = generateDefaultAccounts();
     this.loadFromDisk();
   }
@@ -380,8 +382,8 @@ class TokenVaultManager {
       } else {
         this.saveToDisk();
       }
-    } catch (e) {
-      console.warn('[TokenVault] Dosya okunamadı, varsayılanlar kullanılıyor:', e);
+    } catch {
+      // Vercel / serverless silent fallback
     }
   }
 
@@ -393,8 +395,8 @@ class TokenVaultManager {
         accounts: this.memoryStore,
       };
       fs.writeFileSync(this.filePath, JSON.stringify(data, null, 2), 'utf8');
-    } catch (e) {
-      console.warn('[TokenVault] Diske yazılamadı:', e);
+    } catch {
+      // Vercel / serverless silent fallback - data remains in memory
     }
   }
 

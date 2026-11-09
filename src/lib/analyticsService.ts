@@ -179,7 +179,9 @@ class AnalyticsService {
   private history: PostHistoryItem[];
 
   constructor() {
-    this.filePath = path.join(process.cwd(), '.post-history.json');
+    this.filePath = process.env.VERCEL
+      ? path.join('/tmp', '.post-history.json')
+      : path.join(process.cwd(), '.post-history.json');
     this.history = generateDefaultHistory();
     this.loadFromDisk();
   }
@@ -195,16 +197,16 @@ class AnalyticsService {
       } else {
         this.saveToDisk();
       }
-    } catch (e) {
-      console.warn('[AnalyticsService] Dosya okunamadı, varsayılanlar yükleniyor:', e);
+    } catch {
+      // Vercel / serverless silent fallback
     }
   }
 
   private saveToDisk() {
     try {
       fs.writeFileSync(this.filePath, JSON.stringify(this.history, null, 2), 'utf8');
-    } catch (e) {
-      console.warn('[AnalyticsService] Diske kaydedilemedi:', e);
+    } catch {
+      // Vercel / serverless silent fallback - data remains in memory
     }
   }
 

@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 import { analyticsService } from '@/lib/analyticsService';
 import { ExcelService } from '@/lib/excelService';
 
@@ -9,7 +7,8 @@ export async function GET(
   { params }: { params: { filename: string } }
 ) {
   try {
-    const rawFilename = params.filename || 'OmniPost_Sosyal_Medya_Raporu.xlsx';
+    const rawFilename = (params.filename || 'OmniPost_Sosyal_Medya_Raporu.xlsx')
+      .replace(/[^a-zA-Z0-9._-]/g, '');
     const isCsv = rawFilename.toLowerCase().endsWith('.csv');
 
     const history = analyticsService.getAll();
@@ -17,11 +16,6 @@ export async function GET(
 
     if (isCsv) {
       const csvData = analyticsService.generateCSV(';');
-      try {
-        fs.writeFileSync(path.join(process.cwd(), rawFilename), csvData, 'utf8');
-      } catch (e) {
-        // ignore disk write error
-      }
 
       return new NextResponse(csvData, {
         headers: {
@@ -34,12 +28,6 @@ export async function GET(
 
     // Default: Microsoft Excel OpenXML (.xlsx)
     const excelBuffer = ExcelService.generateXLSX(history, summary);
-
-    try {
-      fs.writeFileSync(path.join(process.cwd(), rawFilename), excelBuffer);
-    } catch (e) {
-      // ignore disk write error
-    }
 
     return new NextResponse(new Uint8Array(excelBuffer), {
       headers: {

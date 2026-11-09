@@ -89,7 +89,9 @@ class ScheduleManager {
   private posts: ScheduledPost[];
 
   constructor() {
-    this.filePath = path.join(process.cwd(), '.scheduled-posts.json');
+    this.filePath = process.env.VERCEL
+      ? path.join('/tmp', '.scheduled-posts.json')
+      : path.join(process.cwd(), '.scheduled-posts.json');
     this.posts = generateDefaultScheduledPosts();
     this.loadFromDisk();
   }
@@ -105,16 +107,16 @@ class ScheduleManager {
       } else {
         this.saveToDisk();
       }
-    } catch (e) {
-      console.warn('[ScheduleManager] Dosya okunamadı, varsayılanlar yükleniyor:', e);
+    } catch {
+      // Vercel / serverless silent fallback
     }
   }
 
   private saveToDisk() {
     try {
       fs.writeFileSync(this.filePath, JSON.stringify(this.posts, null, 2), 'utf8');
-    } catch (e) {
-      console.warn('[ScheduleManager] Diske kaydedilemedi:', e);
+    } catch {
+      // Vercel / serverless silent fallback - data remains in memory
     }
   }
 

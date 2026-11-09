@@ -14,9 +14,15 @@ interface ContactMessage {
   ip?: string;
 }
 
-const MESSAGES_FILE = path.join(process.cwd(), '.contact-messages.json');
+const MESSAGES_FILE = process.env.VERCEL
+  ? path.join('/tmp', '.contact-messages.json')
+  : path.join(process.cwd(), '.contact-messages.json');
+
+// In-memory fallback store for serverless resilience
+let inMemoryMessages: ContactMessage[] = [];
 
 function saveMessage(msg: ContactMessage) {
+  inMemoryMessages.unshift(msg);
   try {
     let existing: ContactMessage[] = [];
     if (fs.existsSync(MESSAGES_FILE)) {
@@ -24,8 +30,8 @@ function saveMessage(msg: ContactMessage) {
     }
     existing.unshift(msg);
     fs.writeFileSync(MESSAGES_FILE, JSON.stringify(existing, null, 2), 'utf8');
-  } catch (err) {
-    console.warn('[Contact API] Mesaj diske yazılamadı:', err);
+  } catch {
+    // Silent fallback on serverless read-only environments
   }
 }
 
@@ -86,15 +92,23 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    let existing: ContactMessage[] = [];
+    let existing: ContactMessage[] = [...inMemoryMessages];
     if (fs.existsSync(MESSAGES_FILE)) {
-      existing = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8'));
+      const diskData = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8'));
+      if (Array.isArray(diskData)) {
+        const ids = new Set(existing.map((m) => m.id));
+        for (const item of diskData) {
+          if (!ids.has(item.id)) {
+            existing.push(item);
+          }
+        }
+      }
     }
     return NextResponse.json({
       count: existing.length,
       messages: existing.slice(0, 20),
     });
   } catch (err: any) {
-    return NextResponse.json({ count: 0, messages: [] });
+    return NextResponse.json({ count: inMemoryMessages.length, messages: inMemoryMessages.slice(0, 20) });
   }
 }
