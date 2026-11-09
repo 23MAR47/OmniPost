@@ -6,7 +6,45 @@ OmniPost Pro, modern içerik üreticileri, pazarlamacılar ve yazılım ekipleri
 
 ---
 
-## ✨ Özellikler
+## 📸 Arayüz & Ekran Görüntüleri Galerisi
+
+### 1. 🎨 İçerik Editörü ve Çok Kanallı Canlı Önizleme (Studio Editor)
+> Tek bir merkezden tüm sosyal ağlar için özel metin, görsel ve video uyarlaması.
+![Studio Editor](public/screenshots/01-studio-editor.png)
+
+---
+
+### 2. ⚡ Çoklu Platform Eşzamanlı Dağıtım Motoru (Concurrent Dispatcher)
+> YouTube, X, Instagram, Facebook, TikTok, Pinterest ve Threads hesaplarına anlık paralel yayın.
+![Multi Platform Dispatch](public/screenshots/02-multi-platform-dispatch.png)
+
+---
+
+### 3. 📊 Gerçek Zamanlı Analitik ve Etkileşim Raporları
+> Gönderi performansı, erişim grafikleri ve tek tıkla Excel (.xlsx) ihracı.
+![Analytics History](public/screenshots/03-analytics-history.png)
+
+---
+
+### 4. 🔐 AES-256 Şifreli Token Kasası (Zero-Leak Token Vault)
+> OAuth 2.0 PKCE oturumları, API anahtarı maskelemesi ve bağlantı sağlık monitörü.
+![Brand Accounts Vault](public/screenshots/04-brand-accounts-vault.png)
+
+---
+
+### 5. 👥 Destek, Geri Bildirim ve Onay Motoru
+> Takım içi onay akışları ve kullanıcı destek biletleri.
+![Support and Approvals](public/screenshots/05-support-approvals.png)
+
+---
+
+### 6. ✅ Başarılı Dağıtım ve Yayın Onay Ekranı
+> HTTP 201 Created durum kodları ve platform bazlı canlı gönderi linkleri.
+![Dispatch Success](public/screenshots/06-dispatch-success.png)
+
+---
+
+## ✨ Temel Özellikler
 
 * **Çoklu Platform Dağıtımı (Omni Dispatcher):** YouTube, X (Twitter), Instagram, Facebook, TikTok, Pinterest ve Threads hesaplarına tek tıkla eşzamanlı içerik yayını.
 * **Akıllı Karakter & Format Validasyonu:** Her platformun karakter sınırları (ör. X için 280), medya kuralları ve en boy oranları için anlık pre-flight denetimi.
