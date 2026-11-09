@@ -1,0 +1,100 @@
+import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
+
+interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  category: 'support' | 'feedback' | 'api_issue' | 'enterprise';
+  message: string;
+  targetWhatsApp?: string;
+  createdAt: string;
+  ip?: string;
+}
+
+const MESSAGES_FILE = path.join(process.cwd(), '.contact-messages.json');
+
+function saveMessage(msg: ContactMessage) {
+  try {
+    let existing: ContactMessage[] = [];
+    if (fs.existsSync(MESSAGES_FILE)) {
+      existing = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8'));
+    }
+    existing.unshift(msg);
+    fs.writeFileSync(MESSAGES_FILE, JSON.stringify(existing, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('[Contact API] Mesaj diske yazılamadı:', err);
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { name, email, phone, category = 'support', message, targetWhatsApp } = body;
+
+    // Validation
+    if (!name || typeof name !== 'string' || name.trim().length < 2) {
+      return NextResponse.json(
+        { success: false, error: 'Lütfen geçerli bir isim giriniz (en az 2 karakter).' },
+        { status: 400 }
+      );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email.trim())) {
+      return NextResponse.json(
+        { success: false, error: 'Lütfen geçerli bir e-posta adresi giriniz.' },
+        { status: 400 }
+      );
+    }
+
+    if (!message || typeof message !== 'string' || message.trim().length < 5) {
+      return NextResponse.json(
+        { success: false, error: 'Lütfen mesajınızı en az 5 karakter olarak yazınız.' },
+        { status: 400 }
+      );
+    }
+
+    const contactMsg: ContactMessage = {
+      id: 'TK-' + Date.now().toString().slice(-6),
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone ? String(phone).trim() : undefined,
+      category,
+      message: message.trim(),
+      targetWhatsApp: targetWhatsApp || '05539771647',
+      createdAt: new Date().toISOString(),
+      ip: request.headers.get('x-forwarded-for') || '127.0.0.1',
+    };
+
+    saveMessage(contactMsg);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Geri bildiriminiz ve destek talebiniz başarıyla alındı. Teşekkür ederiz!',
+      ticketId: contactMsg.id,
+    });
+  } catch (err: any) {
+    return NextResponse.json(
+      { success: false, error: 'İletişim servisinde beklenmeyen bir hata oluştu: ' + err.message },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET() {
+  try {
+    let existing: ContactMessage[] = [];
+    if (fs.existsSync(MESSAGES_FILE)) {
+      existing = JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8'));
+    }
+    return NextResponse.json({
+      count: existing.length,
+      messages: existing.slice(0, 20),
+    });
+  } catch (err: any) {
+    return NextResponse.json({ count: 0, messages: [] });
+  }
+}

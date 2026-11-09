@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <linearGradient id="omniTgFavGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#2BB8FF"/>
+      <stop offset="45%" stop-color="#229ED9"/>
+      <stop offset="100%" stop-color="#1E6FD9"/>
+    </linearGradient>
+    <radialGradient id="omniFavGlare" cx="35%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="omniFavFold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CFE7F7"/>
+      <stop offset="100%" stop-color="#B3DCF5"/>
+    </linearGradient>
+    <filter id="planeShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="3.5" flood-color="#002b54" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Background Telegram Circle -->
+  <circle cx="120" cy="120" r="114" fill="url(#omniTgFavGrad)"/>
+  <circle cx="120" cy="120" r="114" fill="url(#omniFavGlare)"/>
+  <circle cx="120" cy="120" r="113" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="2"/>
+
+  <!-- Multi-channel Signal Wave Arcs -->
+  <g opacity="0.85">
+    <path d="M 175 42 C 192 56 202 76 205 98" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-opacity="0.45" stroke-dasharray="2 1"/>
+    <path d="M 183 54 C 196 66 203 82 205 100" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.75"/>
+  </g>
+
+  <!-- Origami Depth Under-fold -->
+  <path d="M 112 153 L 126 172 L 132 143 Z" fill="url(#omniFavFold)" opacity="0.95"/>
+
+  <!-- Telegram Iconic Paper Airplane Path -->
+  <path
+    d="M 54.3 118.8
+       C 89.3 103.6 112.6 93.5 124.3 88.5
+       C 157.6 74.6 164.5 72.2 169 72.1
+       C 170 72.1 172.2 72.3 173.7 73.5
+       C 174.9 74.5 175.3 75.8 175.4 76.8
+       C 175.5 77.8 175.8 80 175.6 81.7
+       C 173.3 106.1 163.3 165 158.3 192.1
+       C 158.1 193.2 157.4 195.6 155.6 196.4
+       C 153.8 197.2 151.9 196.6 151.1 196
+       C 149.8 195 129.2 181.2 121.4 175.8
+       C 119.2 174.3 114.7 171.3 115.1 168
+       C 115.5 164.7 119.9 160.4 122.6 157.8
+       C 133.4 147.2 146.7 133.9 147.6 132.7
+       C 148.6 131.4 148.2 130.3 146.8 130.3
+       C 145.4 130.3 130.5 140.2 123.4 145
+       C 116.3 149.9 109.4 154.4 107.8 154.8
+       C 106.2 155.2 102.5 154.4 99.6 153.5
+       C 96.2 152.4 91.8 150.9 88.1 149.7
+       C 84.2 148.4 83.3 147.4 83.6 145.5
+       C 83.9 143.6 85.6 142.4 88.1 142.1
+       Z"
+    fill="#FFFFFF"
+    filter="url(#planeShadow)"
+  />
+</svg>

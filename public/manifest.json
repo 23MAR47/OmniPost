@@ -1,0 +1,63 @@
+{
+  "name": "OmniPost - Çoklu Sosyal Medya Paylaşım & Yönetim Platformu",
+  "short_name": "OmniPost",
+  "description": "YouTube, X, Instagram, Facebook, TikTok, Pinterest ve Threads için tek tıkla eşzamanlı içerik yayınlama stüdyosu.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["social", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Yeni Gönderi Oluştur",
+      "short_name": "Stüdyo",
+      "description": "7 platforma aynı anda içerik hazırla ve paylaş",
+      "url": "/?tab=studio",
+      "icons": [{ "src": "/icons/icon-192x192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Zamanlanmış İçerikler",
+      "short_name": "Takvim",
+      "description": "Otomatik yayınlama takvimini ve kuyruğu incele",
+      "url": "/?tab=schedule",
+      "icons": [{ "src": "/icons/icon-192x192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Analitik & Raporlar",
+      "short_name": "Raporlar",
+      "description": "Performans metriklerini ve dağıtım geçmişini görüntüle",
+      "url": "/?tab=analytics",
+      "icons": [{ "src": "/icons/icon-192x192.svg", "sizes": "192x192" }]
+    }
+  ]
+}

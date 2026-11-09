@@ -1,0 +1,31 @@
+# OmniPost - Çoklu Sosyal Medya Paylaşım & Yönetim Platformu
+
+> OmniPost, kullanıcıların tek bir merkezden YouTube, X (Twitter), Instagram, Facebook, TikTok, Pinterest ve Threads platformlarına eşzamanlı veya planlanmış içerik yayınlamasını sağlayan modern bir SaaS otomasyon stüdyosudur.
+
+## Temel Özellikler
+- **Eşzamanlı Dağıtım Motoru (Omni Publisher):** Tek bir başlık, açıklama ve medya dosyasını platforma özel formatlara (Shorts, Reels, Tweet, Pin) dönüştürerek `Promise.allSettled` ile izole hata toleranslı olarak dağıtır.
+- **AES-256 Şifreli Token Kasası (Token Vault):** OAuth 2.0 PKCE belirteçleri ve API anahtarları istemciye sızdırılmadan sunucu tarafında AES-256-CBC ile şifrelenir.
+- **Kuyruk & Akıllı Zamanlayıcı (Scheduling):** Arka planda çalışan cron-worker ile ileri tarihli otomatik paylaşım ve interaktif aylık takvim.
+- **Konsolide Analitik & Raporlama:** 7 platformun etkileşim metrikleri (Görüntülenme, Beğeni, Yorum, Paylaşım), CSV dışa aktarımı ve hata alan platformlar için tek tıkla izole tekrar deneme (Retry).
+- **PWA & Mobil Hibrit:** Progressive Web App mimarisi, çevrimdışı Service Worker önbelleği ve HTML5 mobil kamera çekimi (`capture="environment"`).
+
+## Desteklenen Platformlar & API Yetenekleri
+- **YouTube:** YouTube Data API v3 (Shorts, Video yükleme, başlık/açıklama/etiket).
+- **X (Twitter):** Twitter API v2 (Metin 280 karakter sınırı, görsel/video tweet).
+- **Instagram:** Instagram Graph API (Post, Karusel, Reels, hashtag analizi).
+- **Facebook:** Facebook Graph Pages API (Sayfa ve grup gönderileri).
+- **TikTok:** TikTok Content Posting API (9:16 dikey video, etiketler).
+- **Pinterest:** Pinterest API v5 (Pano seçimi, görsel, hedef yönlendirme URL).
+- **Threads:** Threads API (500 karakter sınırı, metin ve medya gönderisi).
+
+## Teknik Altyapı
+- **Framework:** Next.js (App Router, TypeScript)
+- **Stil & Arayüz:** Tailwind CSS, Lucide React Icons
+- **Şifreleme:** Node.js Crypto (AES-256-CBC)
+- **Depolama:** Disk Kalıcılığı (`.token-vault.json`, `.scheduled-posts.json`, `.post-history.json`)
+- **PWA:** Web App Manifest (`manifest.json`), Service Worker (`sw.js`)
+
+## Belgeler & Yasal Bağlantılar
+- [Gizlilik Politikası (KVKK / GDPR)](/privacy)
+- [Kullanım Şartları](/terms)
+- [Site Haritası (XML)](/sitemap.xml)

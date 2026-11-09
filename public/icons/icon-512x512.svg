@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <filter id="shadow512" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e3a8a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad512)" />
+  
+  <!-- Outer glowing rings -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#ffffff" stroke-width="6" stroke-opacity="0.2" stroke-dasharray="20 16" />
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#ffffff" stroke-width="3" stroke-opacity="0.1" />
+
+  <!-- Omni Send Paper Plane Icon -->
+  <g transform="translate(120, 120) scale(11.3)" filter="url(#shadow512)">
+    <path
+      d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="logoBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1e3a8a" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Logo Mark Icon Container -->
+  <g transform="translate(10, 10)">
+    <rect width="60" height="60" rx="18" fill="url(#logoBgGrad)" filter="url(#logoShadow)" />
+    <!-- Paper Plane in Mark -->
+    <g transform="translate(14, 14) scale(1.35)">
+      <path
+        d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="85" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" fill="#0f172a" letter-spacing="-0.5">
+    Omni<tspan fill="#2563eb">Post</tspan>
+  </text>
+  <text x="86" y="62" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="11" fill="#64748b" letter-spacing="0.5">
+    MULTI-PLATFORM STUDIO
+  </text>
+</svg>

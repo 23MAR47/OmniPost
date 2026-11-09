@@ -1,0 +1,59 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing & Coverage
+/coverage
+
+# Next.js Build Output
+/.next/
+/out/
+build
+
+# Misc & OS files
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local Environment Variables
+.env*.local
+.env
+.env.production
+.env.development
+
+# Vercel
+.vercel
+
+# OmniPost Sensitive Local Vault & State Storage
+.token-vault.json
+.post-history.json
+.scheduled-posts.json
+.inbox-conversations.json
+.listening-streams.json
+.contact-messages.json
+
+# Scratch, Staj & Temporary Scripts
+*.ps1
+*.bat
+*.sh
+/scripts/
+/brag-output*
+/video/
+/rea/
+.agents/
+.cursor/
+.opencode/
+/keyboard/
+
+# Audio keypress files & generated reports
+keypress-*.wav
+*.xlsx
+*.csv
+rea-*.json
